@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom'
 import { FaBuilding, FaCalendarAlt,  FaCogs, FaMoneyBillWave, FaTachometerAlt, FaUsers } from 'react-icons/fa'
 import { useAuth } from '../../context/authContext'
 
-const Sidebar = () => {
+const Sidebar = ({sidebarOpen}) => {
     const {user}= useAuth()
   return (
-    <div className='bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 space-y-2 w-64'>
-        <div className='bg-teal-600 h-12 flex-items-center justify-center'>
-        <h3 className='text-2xl text-center font-pacific pt-2'>Employee MS</h3>
+    <div className={`bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 space-y-2 w-64 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className='bg-teal-600 h-12 flex items-center justify-center'>
+        <h3 className='text-2xl text-center font-pacific'>Employee MS</h3>
 
         </div>
          <div>

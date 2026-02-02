@@ -2,11 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaBuilding, FaCalendarAlt,  FaCogs, FaMoneyBillWave, FaTachometerAlt, FaUsers } from 'react-icons/fa'
 
-const AdminSidebar = () => {
+const AdminSidebar = ({sidebarOpen}) => {
   return (
-    <div className='bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 space-y-2 w-64'>
-        <div className='bg-teal-600 h-12 flex-items-center justify-center'>
-        <h3 className='text-2xl text-center font-pacific pt-2'>Employee MS</h3>
+    <div className={`bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 space-y-2 w-64 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className='bg-teal-600 h-12 flex items-center justify-center'>
+        <h3 className='text-2xl text-center font-pacific'>Employee MS</h3>
 
         </div>
          <div>
@@ -36,7 +36,7 @@ const AdminSidebar = () => {
             <FaMoneyBillWave/>
             <span>Salary</span>
         </NavLink>
-        <NavLink to="/admin-dashboard" 
+        <NavLink to="/admin-dashboard/settings" 
         className={`flex items-center space-x-4 block py-2.5 px-4 rounded`}>
             <FaCogs/>
             <span>Settings</span>
