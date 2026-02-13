@@ -21,7 +21,7 @@ import AddLeave from "./components/leave/Add.jsx"
 import EmployeeSalary from "./components/EmployeeDashboard/Salary.jsx"
 import Settings from "./components/EmployeeDashboard/Settings.jsx"
 import AdminLeaveList from "./components/leave/AdminList.jsx"
-import AdminSettings from "./components/dashboard/adminSettings.jsx"
+import AdminSettings from "./components/dashboard/AdminSettings.jsx"
 
 
 function App() {
