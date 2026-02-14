@@ -14,10 +14,10 @@ const AdminSummary = () => {
     const fetchAll = async () => {
       try {
         const [empRes, depRes, leaveRes, salRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/employee', { headers }),
-          axios.get('http://localhost:5000/api/department', { headers }),
-          axios.get('http://localhost:5000/api/leave', { headers }),
-          axios.get('http://localhost:5000/api/salary/summary/current', { headers })
+          axios.get('https://employee-server-pink.vercel.app/api/employee', { headers }),
+          axios.get('https://employee-server-pink.vercel.app/api/department', { headers }),
+          axios.get('https://employee-server-pink.vercel.app/api/leave', { headers }),
+          axios.get('https://employee-server-pink.vercel.app/api/salary/summary/current', { headers })
         ])
         const employees = empRes.data?.employees || []
         const departments = depRes.data?.departments || []

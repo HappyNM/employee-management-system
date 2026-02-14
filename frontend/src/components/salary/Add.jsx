@@ -60,7 +60,7 @@ const AddSalary = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post(`http://localhost:5000/api/salary/add`, formState, {
+            const response = await axios.post(`https://employee-server-pink.vercel.app/api/salary/add`, formState, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })
             if (response.data.success) {

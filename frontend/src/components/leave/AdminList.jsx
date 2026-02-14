@@ -9,7 +9,7 @@ const AdminLeaveList = () => {
   const fetchLeaves = async () => {
     try {
       setLoading(true)
-      const res = await axios.get('http://localhost:5000/api/leave', {
+      const res = await axios.get('https://employee-server-pink.vercel.app/api/leave', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
       if (res.data.success) {
@@ -29,7 +29,7 @@ const AdminLeaveList = () => {
   const updateStatus = async (id, status) => {
     try {
       setUpdatingId(id)
-      const res = await axios.patch(`http://localhost:5000/api/leave/${id}/status`, { status }, {
+      const res = await axios.patch(`https://employee-server-pink.vercel.app/api/leave/${id}/status`, { status }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
       if (res.data.success) {
@@ -156,3 +156,4 @@ const AdminLeaveList = () => {
 }
 
 export default AdminLeaveList
+

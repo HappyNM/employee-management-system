@@ -13,7 +13,7 @@ const ViewSalary = () => {
     useEffect(() => {
         const fetchSalaries = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/salary/${id}`, {
+                const response = await axios.get(`https://employee-server-pink.vercel.app/api/salary/${id}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`
                     }

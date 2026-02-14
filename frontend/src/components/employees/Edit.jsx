@@ -21,7 +21,7 @@ const EditEmployee = () => {
         const initialise = async () => {
             try {
                 const [employeeResponse, departmentList] = await Promise.all([
-                    axios.get(`http://localhost:5000/api/employee/${id}`, {
+                    axios.get(`https://employee-server-pink.vercel.app/api/employee/${id}`, {
                         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                     }),
                     fetchDepartments()
@@ -59,7 +59,7 @@ const EditEmployee = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.put(`http://localhost:5000/api/employee/${id}`, formState, {
+            const response = await axios.put(`https://employee-server-pink.vercel.app/api/employee/${id}`, formState, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })
             if (response.data.success) {

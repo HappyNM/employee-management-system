@@ -32,7 +32,7 @@ const Settings = () => {
 
     try {
       setSubmitting(true)
-      const res = await axios.post('http://localhost:5000/api/auth/change-password', {
+      const res = await axios.post('https://employee-server-pink.vercel.app/api/auth/change-password', {
         currentPassword: form.currentPassword,
         newPassword: form.newPassword
       }, {
@@ -106,3 +106,4 @@ const Settings = () => {
 }
 
 export default Settings
+

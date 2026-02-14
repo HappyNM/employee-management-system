@@ -24,8 +24,8 @@ const Summarry = () => {
             try {
                 if (!user?._id) return
                 const [leaveRes, salaryRes] = await Promise.all([
-                    axios.get(`http://localhost:5000/api/leave/${user._id}`, { headers }),
-                    axios.get(`http://localhost:5000/api/salary/user/${user._id}`, { headers })
+                    axios.get(`https://employee-server-pink.vercel.app/api/leave/${user._id}`, { headers }),
+                    axios.get(`https://employee-server-pink.vercel.app/api/salary/user/${user._id}`, { headers })
                 ])
                 setLeaves(leaveRes.data?.leaves || [])
                 const salaries = salaryRes.data?.salaries || []
