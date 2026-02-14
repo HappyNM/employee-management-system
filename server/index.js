@@ -7,10 +7,15 @@ import connectToDatabase from './db/db.js'
 import salaryRouter from './routes/salary.js'
 import leaveRouter from './routes/leave.js'
 
-connectToDatabase()
-
-
 const app = express()
+app.use(async (req, res, next) => {
+    try {
+        await connectToDatabase()
+        next()
+    } catch (error) {
+        next(error)
+    }
+})
 app.use(cors({
     origin: "https://employee-front-chi.vercel.app",
     credentials: true
@@ -27,5 +32,4 @@ app.use("/api/leave", leaveRouter)
 
 app.listen(process.env.PORT, () => {
     console.log(`server is running on port ${process.env.PORT} `);
-    
 })
