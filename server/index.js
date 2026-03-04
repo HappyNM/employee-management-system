@@ -30,6 +30,10 @@ app.use("/api/employee", employeeRouter)
 app.use("/api/salary", salaryRouter)
 app.use("/api/leave", leaveRouter)
 
+app.get('/', (req, res) => {
+    res.send("Server is Running");
+})
+
 app.listen(process.env.PORT, () => {
     console.log(`server is running on port ${process.env.PORT} `);
 })
