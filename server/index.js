@@ -33,3 +33,4 @@ app.use("/api/leave", leaveRouter)
 app.listen(process.env.PORT, () => {
     console.log(`server is running on port ${process.env.PORT} `);
 })
+export default app
