@@ -27,7 +27,7 @@ const List = () => {
           dep_name: emp.department.dep_name,
           name: emp.userId.name,
           dateOfBirth: new Date(emp.dob).toLocaleDateString(),
-          profileImage: <img src={`https://employee-server-pink.vercel.app/public/uploads/${emp.userId.profileImage}`} alt={emp.userId.name} className="w-11 h-11 rounded-full object-cover mx-auto" />,
+          profileImage: <img src={emp.userId.profileImage} alt={emp.userId.name} className="w-11 h-11 rounded-full object-cover mx-auto" />,
           action: <EmployeeButtons _id={emp._id} />
         }));
         setEmployees(data);

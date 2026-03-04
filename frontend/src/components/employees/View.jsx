@@ -86,7 +86,7 @@ const View = () => {
                             <div className="flex-shrink-0 flex justify-center md:justify-start">
                                 <div className="relative">
                                     <img 
-                                        src={`https://employee-server-pink.vercel.app/public/uploads/${user.profileImage}`} 
+                                        src={user.profileImage} 
                                         alt={user.name}
                                         className="w-48 h-48 rounded-full object-cover shadow-2xl border-4 border-white ring-4 ring-blue-100"
                                     />
