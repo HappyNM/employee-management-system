@@ -8,22 +8,27 @@ import salaryRouter from './routes/salary.js'
 import leaveRouter from './routes/leave.js'
 
 const app = express()
+
+// CORS and JSON parsing first
+app.use(cors({
+    origin: "https://employee-front-chi.vercel.app",
+    credentials: true
+}))
+app.use(express.json())
+app.use('/public/uploads', express.static('public/uploads'))
+
+// Database connection middleware
 app.use(async (req, res, next) => {
     try {
         await connectToDatabase()
         next()
     } catch (error) {
-        next(error)
+        console.log("DB Connection Error:", error.message)
+        res.status(500).json({ success: false, error: "Database connection failed" })
     }
 })
-app.use(cors({
-    origin: "https://employee-front-chi.vercel.app",
-    credentials: true
-})
-    
-)
-app.use(express.json())
-app.use('/public/uploads', express.static('public/uploads'))
+
+// Routes
 app.use("/api/auth", authRouter)
 app.use("/api/department", departmentRouter)
 app.use("/api/employee", employeeRouter)
@@ -34,7 +39,4 @@ app.get('/', (req, res) => {
     res.send("Server is Running");
 })
 
-app.listen(process.env.PORT, () => {
-    console.log(`server is running on port ${process.env.PORT} `);
-})
 export default app
