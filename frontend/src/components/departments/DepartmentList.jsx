@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import { columns, DepartmentButtons } from "../../utils/DepartmentHelper";
 import axios from "axios";
+import { PageHeader, Button, Input, Section, LoadingSpinner } from "../../constants/componentUtils";
 
 const DepartmentList = () => {
   const [depLoading, setDepLoading] = useState(null);
@@ -23,7 +24,7 @@ const DepartmentList = () => {
           id: dep._id,
           sno: sno++,
           dep_name: dep.dep_name,
-          action: <DepartmentButtons _id={dep._id} onDepartmentDelete={onDepartmentDelete} />, // action re-created each load
+          action: <DepartmentButtons _id={dep._id} onDepartmentDelete={onDepartmentDelete} />,
         }));
         setDepartments(data);
         setFilteredDepartments(data);
@@ -38,7 +39,7 @@ const DepartmentList = () => {
   };
 
   const onDepartmentDelete = async () => {
-    await loadDepartments(); // refresh from server so UI stays in sync
+    await loadDepartments();
   };
 
   useEffect(() => {
@@ -46,36 +47,46 @@ const DepartmentList = () => {
   }, []);
 
   const filterDepartments = (e) => {
-    const records= departments.filter((dep) =>
+    const records = departments.filter((dep) =>
       dep.dep_name.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setFilteredDepartments(records);
-  }
+  };
+  
   return (
-    <>{depLoading ? <div>Loading...</div> : 
-    <div className="p=5">
-      <div className="text-center">
-        <h3 className="text-2xl font-bold">Manage Departments</h3>
-      </div>
-      <div className="flex justify-between items-center">
-        <input
-          type="text"
-          placeholder="Search by dept name"
-          className="px-4 py-0.5 border"
-          onChange={filterDepartments}
-        />
-        <Link
-          to="/admin-dashboard/add-department"
-          className="px-4 py-1 mb-3 mr-2 bg-teal-600 rounded text-white"
-        >
-          Add New Department
-        </Link>
-      </div>
-      <div>
-        <DataTable columns={columns} data={filteredDepartments} pagination />
-      </div>
+    <div className="p-6">
+      {depLoading && <LoadingSpinner className="py-12" />}
+      
+      {!depLoading && (
+        <>
+          <PageHeader 
+            title="Manage Departments"
+            action={
+              <Link to="/admin-dashboard/add-department">
+                <Button variant="primary">Add New Department</Button>
+              </Link>
+            }
+          />
+
+          <Section>
+            <div className="mb-4">
+              <Input
+                placeholder="Search by department name"
+                onChange={filterDepartments}
+              />
+            </div>
+            
+            <DataTable 
+              columns={columns} 
+              data={filteredDepartments} 
+              pagination 
+              highlightOnHover
+              pointerOnHover
+            />
+          </Section>
+        </>
+      )}
     </div>
-}</>
   );
 };
 

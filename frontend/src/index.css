@@ -1,3 +1,213 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Design System Global Styles */
+
+/* Root Variables */
+:root {
+  --primary-color: #0d9488;
+  --primary-dark: #0a7a6e;
+  --primary-light: #e0f4f4;
+  --secondary-color: #6b7280;
+  --text-dark: #1f2937;
+  --text-medium: #6b7280;
+  --text-light: #9ca3af;
+  --bg-light: #f9fafb;
+  --bg-main: #f3f4f6;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles */
+* {
+  @apply transition-colors duration-200;
+}
+
+body {
+  @apply bg-gray-100 text-gray-900 font-sans;
+  color: var(--text-dark);
+}
+
+/* Typography */
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-3xl font-bold;
+}
+
+h3 {
+  @apply text-2xl font-bold;
+}
+
+h4 {
+  @apply text-xl font-semibold;
+}
+
+h5 {
+  @apply text-lg font-semibold;
+}
+
+p {
+  @apply text-base font-normal;
+}
+
+label {
+  @apply text-sm font-medium text-gray-700;
+}
+
+/* Form Elements - CONSISTENT STYLING */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200;
+}
+
+textarea {
+  @apply resize-vertical;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  @apply bg-gray-100 cursor-not-allowed opacity-60;
+}
+
+/* Buttons - CONSISTENT STYLING */
+button {
+  @apply font-medium transition-all duration-200;
+}
+
+button:not(:disabled) {
+  @apply cursor-pointer;
+}
+
+button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Tables */
+table {
+  @apply w-full border-collapse;
+}
+
+th {
+  @apply bg-teal-600 text-white p-3 text-left font-semibold;
+}
+
+td {
+  @apply p-3 border-b border-gray-200;
+}
+
+tr:hover {
+  @apply bg-gray-50;
+}
+
+/* Cards */
+.card,
+.section {
+  @apply bg-white rounded-lg shadow-md p-6 border border-gray-100;
+}
+
+.card {
+  @apply hover:shadow-lg transition-shadow duration-300;
+}
+
+/* Page Container */
+.page-container {
+  @apply max-w-7xl mx-auto px-4 py-6;
+}
+
+.content-area {
+  @apply p-6 bg-white rounded-lg shadow-sm;
+}
+
+/* Navigation */
+nav a {
+  @apply text-gray-700 hover:text-teal-600 transition-colors duration-200;
+}
+
+nav a.active {
+  @apply text-teal-600 font-semibold;
+}
+
+/* Utilities */
+.truncate-text {
+  @apply truncate;
+}
+
+.line-clamp-2 {
+  @apply line-clamp-2;
+}
+
+.fade-in {
+  @apply animate-fadeIn;
+}
+
+/* Loading State */
+.loading {
+  @apply opacity-60 pointer-events-none;
+}
+
+/* Error State */
+.error {
+  @apply text-red-600;
+}
+
+.error-message {
+  @apply text-red-600 text-sm mt-1;
+}
+
+/* Success State */
+.success {
+  @apply text-green-600;
+}
+
+.success-message {
+  @apply text-green-600 text-sm mt-1;
+}
+
+/* Focus Styles for Accessibility */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-teal-500;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .hide-mobile {
+    @apply hidden;
+  }
+}
+
+@media (min-width: 769px) {
+  .show-mobile {
+    @apply hidden;
+  }
+}
+

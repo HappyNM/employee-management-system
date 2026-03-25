@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { EmployeeButtons, columns } from '../../utils/EmployeeHelper'
 import DataTable from 'react-data-table-component'
+import { PageHeader, Button, Input, Section } from '../../constants/componentUtils'
 
 const List = () => {
   const [employees, setEmployees] = useState([])
@@ -51,26 +52,24 @@ const List = () => {
     setFilteredEmployees(records);
   }
   return (
-   <div className="p=6">
-      <div className="text-center">
-        <h3 className="text-2xl font-bold">Manage Employees</h3>
-      </div>
-      <div className="flex justify-between items-center">
-        <input
-          type="text"
-          placeholder="Search by name"
-          className="px-4 py-0.5 border"
-          onChange={handleFilter}
-          
-        />
-        <Link
-          to="/admin-dashboard/add-employee"
-          className="px-4 py-1 mb-3 mr-2 bg-teal-600 rounded text-white"
-        >
-          Add New Employee
-        </Link>
-      </div>
-      <div>
+   <div className="p-6">
+      <PageHeader 
+        title="Manage Employees"
+        action={
+          <Link to="/admin-dashboard/add-employee">
+            <Button variant="primary">Add New Employee</Button>
+          </Link>
+        }
+      />
+      
+      <Section>
+        <div className="mb-4">
+          <Input
+            placeholder="Search by name"
+            onChange={handleFilter}
+          />
+        </div>
+        
         <DataTable
           columns={columns}
           data={filteredEmployees}
@@ -79,7 +78,7 @@ const List = () => {
           highlightOnHover
           pointerOnHover
         />
-      </div>
+      </Section>
     </div>
   )
 }
