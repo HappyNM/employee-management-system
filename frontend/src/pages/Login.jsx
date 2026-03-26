@@ -48,7 +48,7 @@ const Login = ()=>{
                         <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
                         <div className="relative">
                             <MdEmail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                            <input type="email" placeholder="Enter your email" className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
+                            <input type="email" placeholder="Enter your email" className="w-full ml-3 pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
                             onChange={(e)=>setEmail(e.target.value)} required/>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ const Login = ()=>{
                         <label htmlFor="password" className="block text-gray-700 font-medium mb-2">Password</label>
                         <div className="relative">
                             <MdLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                            <input type="password" placeholder="Enter your password" required className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
+                            <input type="password" placeholder="Enter your password" required className="w-full ml-3 pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
                             onChange={(e)=>setPassword(e.target.value)}/>
                         </div>
                     </div>
