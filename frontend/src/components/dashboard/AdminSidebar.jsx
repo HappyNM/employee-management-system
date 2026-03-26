@@ -15,7 +15,7 @@ const AdminSidebar = ({ sidebarOpen, toggleSidebar }) => {
       )}
       
       {/* Sidebar */}
-      <div className={`bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 space-y-2 w-64 md:w-64 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} z-50 md:translate-x-0 md:relative md:block overflow-y-auto`}>
+      <div className={`bg-gray-800 text-white h-screen fixed md:relative left-0 md:left-auto top-0 md:top-auto bottom-0 md:bottom-auto space-y-2 w-64 transform md:transform-none transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 z-50 md:z-0 overflow-y-auto`}>
       <div className='bg-teal-600 h-12 flex items-center justify-center border-b border-teal-700'>
         <h3 className='text-2xl text-center font-pacific'>Employee MS</h3>
       </div>

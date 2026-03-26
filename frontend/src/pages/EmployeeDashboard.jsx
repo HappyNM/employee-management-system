@@ -6,16 +6,16 @@ import Navbar from '../components/dashboard/Navbar'
 
 
 const EmployeeDashboard = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const toggleSidebar = () => {
       setSidebarOpen(!sidebarOpen)
   }
   
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex">
             <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar}/>
-            <div className={`flex-1 flex flex-col bg-gray-100 min-h-screen md:ml-0 transition-all duration-300`}>
+            <div className="flex-1 flex flex-col bg-gray-100 min-h-screen transition-all duration-300">
                 <Navbar toggleSidebar={toggleSidebar}/>
                <Outlet/>
             </div>
