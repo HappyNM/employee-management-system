@@ -55,13 +55,13 @@ const LeaveList = () => {
     }
 
     return (
-        <div className='p-6'>
+        <div className='p-4 sm:p-6'>
             <div className='text-center mb-6'>
-                <h3 className='text-2xl font-bold'>My Leave Requests</h3>
+                <h3 className='text-2xl sm:text-3xl font-bold'>My Leave Requests</h3>
             </div>
-            <div className='flex justify-between items-center mb-4'>
-                <input type="text" placeholder='Search leaves...' className='px-4 py-2 border rounded-md' />
-                <Link to="/employee-dashboard/add-leave" className="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors">
+            <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3 sm:gap-0'>
+                <input type="text" placeholder='Search leaves...' className='w-full sm:flex-1 px-3 sm:px-4 py-2 border rounded-md text-sm sm:text-base' />
+                <Link to="/employee-dashboard/add-leave" className="w-full sm:w-auto px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors text-center text-sm sm:text-base">
                     Request New Leave
                 </Link>
             </div>
@@ -72,31 +72,31 @@ const LeaveList = () => {
                         <table className='w-full'>
                             <thead className='bg-gray-50 border-b border-gray-200'>
                                 <tr>
-                                    <th className='px-6 py-4 text-left text-sm font-bold text-gray-700 uppercase tracking-wider'>S No</th>
-                                    <th className='px-6 py-4 text-left text-sm font-bold text-gray-700 uppercase tracking-wider'>Leave Type</th>
-                                    <th className='px-6 py-4 text-left text-sm font-bold text-gray-700 uppercase tracking-wider'>From</th>
-                                    <th className='px-6 py-4 text-left text-sm font-bold text-gray-700 uppercase tracking-wider'>To</th>
-                                    <th className='px-6 py-4 text-left text-sm font-bold text-gray-700 uppercase tracking-wider'>Description</th>
-                                    <th className='px-6 py-4 text-left text-sm font-bold text-gray-700 uppercase tracking-wider'>Applied Date</th>
-                                    <th className='px-6 py-4 text-left text-sm font-bold text-gray-700 uppercase tracking-wider'>Status</th>
+                                    <th className='px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider'>S No</th>
+                                    <th className='px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider'>Leave Type</th>
+                                    <th className='px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider'>From</th>
+                                    <th className='px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider'>To</th>
+                                    <th className='hidden md:table-cell px-6 py-4 text-left text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider'>Description</th>
+                                    <th className='px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider'>Applied Date</th>
+                                    <th className='px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider'>Status</th>
                                 </tr>
                             </thead>
                             <tbody className='divide-y divide-gray-200'>
                                 {leaves.map((leave, index) => (
                                     <tr key={leave._id} className='hover:bg-gray-50 transition-colors duration-150'>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900'>
                                             {index + 1}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-700 capitalize'>
+                                        <td className='px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-700 capitalize'>
                                             {leave.leaveType}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-700'>
+                                        <td className='px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-700'>
                                             {new Date(leave.startDate).toLocaleDateString('en-GB')}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-700'>
+                                        <td className='px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-700'>
                                             {new Date(leave.endDate).toLocaleDateString('en-GB')}
                                         </td>
-                                        <td className='px-6 py-4 text-sm text-gray-700 max-w-xs truncate'>
+                                        <td className='hidden md:table-cell px-6 py-4 text-xs sm:text-sm text-gray-700 max-w-xs truncate'>
                                             {leave.reason}
                                         </td>
                                         <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-700'>

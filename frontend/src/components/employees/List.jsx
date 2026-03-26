@@ -52,7 +52,7 @@ const List = () => {
     setFilteredEmployees(records);
   }
   return (
-   <div className="p-6">
+   <div className="p-4 sm:p-6">
       <PageHeader 
         title="Manage Employees"
         action={
@@ -70,14 +70,16 @@ const List = () => {
           />
         </div>
         
-        <DataTable
-          columns={columns}
-          data={filteredEmployees}
-          progressPending={empLoading}
-          pagination
-          highlightOnHover
-          pointerOnHover
-        />
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <DataTable
+            columns={columns}
+            data={filteredEmployees}
+            progressPending={empLoading}
+            pagination
+            highlightOnHover
+            pointerOnHover
+          />
+        </div>
       </Section>
     </div>
   )

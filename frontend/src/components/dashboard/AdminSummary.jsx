@@ -45,23 +45,23 @@ const AdminSummary = () => {
   }, [leaves])
 
   return (
-    <div className='p-6'>
-      <h1 className='text-3xl font-bold mb-2'>Dashboard Overview</h1>
-      <p className='text-gray-600 mb-6'>Summary of your key metrics</p>
+    <div className='p-4 sm:p-6'>
+      <h1 className='text-2xl sm:text-3xl font-bold mb-2'>Dashboard Overview</h1>
+      <p className='text-xs sm:text-base text-gray-600 mb-6'>Summary of your key metrics</p>
       
       {loading ? (
         <LoadingSpinner className="py-12" />
       ) : (
         <>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-12'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12'>
             <SummaryCard icon={<FaUsers />} text="Total Employees" number={counts.employees} color="bg-teal-600" />
             <SummaryCard icon={<FaBuilding />} text="Total Departments" number={counts.departments} color="bg-yellow-600" />
             <SummaryCard icon={<FaMoneyBillWave />} text="Monthly Salary" number={counts.salaryTotal} color="bg-red-600" />
           </div>
 
-          <div className='mt-12'>
-            <h2 className='text-2xl font-bold mb-6'>Leave Details</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+          <div className='mt-8 sm:mt-12'>
+            <h2 className='text-xl sm:text-2xl font-bold mb-4 sm:mb-6'>Leave Details</h2>
+            <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6'>
               <SummaryCard icon={<FaFileAlt />} text="Total Leaves" number={leaveStats.total} color="bg-teal-600" />
               <SummaryCard icon={<FaCheckCircle />} text="Approved" number={leaveStats.approved} color="bg-green-600" />
               <SummaryCard icon={<FaHourglassHalf />} text="Pending" number={leaveStats.pending} color="bg-orange-600" />

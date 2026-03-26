@@ -3,11 +3,22 @@ import { NavLink } from 'react-router-dom'
 import { FaCalendarAlt, FaCogs, FaMoneyBillWave, FaTachometerAlt, FaUser } from 'react-icons/fa'
 import { useAuth } from '../../context/authContext'
 
-const Sidebar = ({ sidebarOpen }) => {
+const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
   const { user } = useAuth()
   
   return (
-    <div className={`bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 w-64 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} z-50`}>
+    <>
+      {/* Mobile Backdrop Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={toggleSidebar}
+          aria-label="Close sidebar"
+        />
+      )}
+      
+      {/* Sidebar */}
+      <div className={`bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 w-64 md:w-64 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} z-50 md:translate-x-0 md:relative md:block overflow-y-auto`}>
       <div className='bg-teal-600 h-12 flex items-center justify-center border-b border-teal-700'>
         <h3 className='text-2xl text-center font-pacific'>Employee MS</h3>
       </div>
@@ -69,7 +80,8 @@ const Sidebar = ({ sidebarOpen }) => {
           <span className='font-medium'>Settings</span>
         </NavLink>
       </nav>
-    </div>
+      </div>
+    </>
   )
 }
 

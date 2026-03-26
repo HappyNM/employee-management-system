@@ -32,17 +32,17 @@ const AddLeave = () => {
     }
         
   return (
-    <div className='max-w-4xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md'>
-        <h2 className='text-2xl font-bold mb-6'>Request for Leaves</h2>
+    <div className='max-w-4xl mx-auto mt-6 sm:mt-10 bg-white p-4 sm:p-8 rounded-md shadow-md'>
+        <h2 className='text-2xl sm:text-3xl font-bold mb-6 text-center'>Request for Leaves</h2>
         <form onSubmit={handleSubmit}>
-            <div className='flex flex-col gap-4'>
+            <div className='flex flex-col gap-4 sm:gap-6'>
                 {/* Leave Type - Full Row */}
                 <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-1'>
+                    <label className='block text-xs sm:text-sm font-medium text-gray-700 mb-2'>
                         Leave Type
                     </label>
                     <select name="leaveType" onChange={handleChange} required
-                    className='mt-1 p-2 block w-full border border-gray-300 rounded-md'>
+                    className='w-full px-3 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-md'>
                         <option value="">Select leave type</option>
                         <option value="sick">Sick Leave</option>
                         <option value="casual">Casual Leave</option>
@@ -50,36 +50,36 @@ const AddLeave = () => {
                     </select>
                 </div>
 
-                {/* Dates - Shared Row */}
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                {/* Dates - Responsive Grid */}
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4'>
                     <div>
-                        <label className='block text-sm font-medium text-gray-700 mb-1'>
+                        <label className='block text-xs sm:text-sm font-medium text-gray-700 mb-2'>
                             From Date
                         </label>
                         <input type="date" name="startDate" onChange={handleChange} required
-                        className='mt-1 p-2 block w-full border border-gray-300 rounded-md' />
+                        className='w-full px-3 py-2 sm:py-3 text-xs sm:text-base border border-gray-300 rounded-md' />
                     </div>
                     <div>
-                        <label className='block text-sm font-medium text-gray-700 mb-1'>
+                        <label className='block text-xs sm:text-sm font-medium text-gray-700 mb-2'>
                             To Date
                         </label>
                         <input type="date" name="endDate" onChange={handleChange} required
-                        className='mt-1 p-2 block w-full border border-gray-300 rounded-md' />
+                        className='w-full px-3 py-2 sm:py-3 text-xs sm:text-base border border-gray-300 rounded-md' />
                     </div>
                 </div>
 
                 {/* Description - Full Row */}
                 <div>
-                    <label className='block text-sm font-medium text-gray-700 mb-1'>
+                    <label className='block text-xs sm:text-sm font-medium text-gray-700 mb-2'>
                         Description
                     </label>
                     <textarea name="reason" onChange={handleChange} required rows="4" placeholder="Enter reason for leave..."
-                    className='w-full p-2 border border-gray-300 rounded-md' />
+                    className='w-full px-3 py-2 text-xs sm:text-base border border-gray-300 rounded-md' />
                 </div>
 
                 {/* Submit Button - Full Row */}
                 <div>
-                    <button type="submit" className='w-full mt-2 bg-teal-600 text-white font-semibold px-4 py-3 rounded-md hover:bg-teal-700 transition-colors'>
+                    <button type="submit" className='w-full mt-2 bg-teal-600 text-white font-semibold px-4 py-2 sm:py-3 rounded-md hover:bg-teal-700 transition-colors text-sm sm:text-base'>
                         Submit Leave Request
                     </button>
                 </div>

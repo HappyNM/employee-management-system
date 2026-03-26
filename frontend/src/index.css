@@ -31,33 +31,33 @@ body {
   color: var(--text-dark);
 }
 
-/* Typography */
+/* Typography - Responsive */
 h1 {
-  @apply text-4xl font-bold;
+  @apply text-3xl sm:text-4xl font-bold;
 }
 
 h2 {
-  @apply text-3xl font-bold;
+  @apply text-2xl sm:text-3xl font-bold;
 }
 
 h3 {
-  @apply text-2xl font-bold;
+  @apply text-xl sm:text-2xl font-bold;
 }
 
 h4 {
-  @apply text-xl font-semibold;
+  @apply text-lg sm:text-xl font-semibold;
 }
 
 h5 {
-  @apply text-lg font-semibold;
+  @apply text-base sm:text-lg font-semibold;
 }
 
 p {
-  @apply text-base font-normal;
+  @apply text-sm sm:text-base font-normal;
 }
 
 label {
-  @apply text-sm font-medium text-gray-700;
+  @apply text-xs sm:text-sm font-medium text-gray-700;
 }
 
 /* Form Elements - CONSISTENT STYLING */
@@ -69,7 +69,7 @@ input[type="number"],
 input[type="search"],
 textarea,
 select {
-  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200;
+  @apply w-full px-3 py-2 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base;
 }
 
 textarea {
@@ -95,27 +95,60 @@ button:disabled {
   @apply opacity-50 cursor-not-allowed;
 }
 
-/* Tables */
+/* Tables - Responsive Wrapper */
+.table-responsive {
+  @apply w-full overflow-x-auto -mx-6 sm:mx-0 sm:overflow-x-visible;
+}
+
+.table-responsive table {
+  @apply min-w-full;
+}
+
 table {
   @apply w-full border-collapse;
 }
 
 th {
-  @apply bg-teal-600 text-white p-3 text-left font-semibold;
+  @apply bg-teal-600 text-white p-2 sm:p-3 text-xs sm:text-sm font-semibold;
 }
 
 td {
-  @apply p-3 border-b border-gray-200;
+  @apply p-2 sm:p-3 border-b border-gray-200 text-xs sm:text-sm;
 }
 
 tr:hover {
   @apply bg-gray-50;
 }
 
+/* Data Table Component Styling */
+.rdt {
+  @apply border-0 shadow-md;
+}
+
+.rdt_TableHeadRow {
+  @apply bg-teal-600;
+}
+
+.rdt_TableHeadCell {
+  @apply text-white font-semibold text-xs sm:text-sm py-2 sm:py-3;
+}
+
+.rdt_TableRow {
+  @apply border-b border-gray-200 hover:bg-gray-50 transition-colors;
+}
+
+.rdt_TableCell {
+  @apply text-xs sm:text-sm py-2 sm:py-3;
+}
+
+.rdt_Pagination {
+  @apply flex flex-wrap justify-center sm:justify-end py-3 px-2 gap-2;
+}
+
 /* Cards */
 .card,
 .section {
-  @apply bg-white rounded-lg shadow-md p-6 border border-gray-100;
+  @apply bg-white rounded-lg shadow-md p-4 sm:p-6 border border-gray-100;
 }
 
 .card {
@@ -124,11 +157,11 @@ tr:hover {
 
 /* Page Container */
 .page-container {
-  @apply max-w-7xl mx-auto px-4 py-6;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
 }
 
 .content-area {
-  @apply p-6 bg-white rounded-lg shadow-sm;
+  @apply p-4 sm:p-6 bg-white rounded-lg shadow-sm;
 }
 
 /* Navigation */

@@ -54,7 +54,7 @@ const DepartmentList = () => {
   };
   
   return (
-    <div className="p-6">
+    <div className="p-4 sm:p-6">
       {depLoading && <LoadingSpinner className="py-12" />}
       
       {!depLoading && (
@@ -76,13 +76,15 @@ const DepartmentList = () => {
               />
             </div>
             
-            <DataTable 
-              columns={columns} 
-              data={filteredDepartments} 
-              pagination 
-              highlightOnHover
-              pointerOnHover
-            />
+            <div className="overflow-x-auto -mx-4 sm:mx-0">
+              <DataTable 
+                columns={columns} 
+                data={filteredDepartments} 
+                pagination 
+                highlightOnHover
+                pointerOnHover
+              />
+            </div>
           </Section>
         </>
       )}

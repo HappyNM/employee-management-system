@@ -33,19 +33,19 @@ const AddDepartment = () => {
   }
   }
   return (
-    <div className='max-w-3xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md w-96'>
+    <div className='max-w-3xl mx-auto mt-6 sm:mt-10 bg-white p-4 sm:p-8 rounded-md shadow-md'>
       <div>
-        <h2 className='text-2xl font-bold mb-6'>Add New Department</h2>
+        <h2 className='text-2xl sm:text-3xl font-bold mb-6'>Add New Department</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="dep_name" className='text-sm font-medium text-gray-700'>Department Name</label>
-            <input type="text" name="dep_name" placeholder='Department Name' className='mt-1 w-full p-2 border border-gray-300 rounded-md' onChange={handleChange} required/>
+            <label htmlFor="dep_name" className='block text-xs sm:text-sm font-medium text-gray-700 mb-2'>Department Name</label>
+            <input type="text" name="dep_name" placeholder='Department Name' className='w-full px-3 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-md' onChange={handleChange} required/>
           </div>
-          <div className='mt-3'>
-            <label htmlFor="description" className='block text-sm font-medium text-gray-700'>Description</label>
-            <textarea name="description" placeholder='Enter Description' className='mt-1 p-2 block w-full border border-gray-300 rounded-md' rows="4" onChange={handleChange} /> 
+          <div className='mt-4 sm:mt-6'>
+            <label htmlFor="description" className='block text-xs sm:text-sm font-medium text-gray-700 mb-2'>Description</label>
+            <textarea name="description" placeholder='Enter Description' className='w-full px-3 py-2 text-xs sm:text-base border border-gray-300 rounded-md' rows="4" onChange={handleChange} /> 
           </div>
-          <button type='submit' className='w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded'>Add Department</button>
+          <button type='submit' className='w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 sm:py-3 px-4 rounded text-sm sm:text-base'>Add Department</button>
         </form>
       </div>
     </div>

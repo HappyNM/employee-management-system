@@ -15,9 +15,9 @@ import { Outlet } from "react-router-dom";
     }
 
     return(
-        <div className="flex">
-            <AdminSidebar sidebarOpen={sidebarOpen}/>
-            <div className={`flex-1 ${sidebarOpen ? 'ml-64' : 'ml-0'} bg-gray-100 h-screen transition-all duration-300`}>
+        <div className="flex flex-col md:flex-row">
+            <AdminSidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar}/>
+            <div className={`flex-1 flex flex-col bg-gray-100 min-h-screen md:ml-0 transition-all duration-300`}>
                 <Navbar toggleSidebar={toggleSidebar}/>
                <Outlet/>
             </div>
